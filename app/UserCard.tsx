@@ -13,6 +13,8 @@ const UserCard = ({ user, onDelete }: any) => {
     onDelete(user.id);
   };
 
+//   git remote set-url origin git@github.com:ppreyer/first_app.git
+
   return (
     <Grid.Col span={12}>
       <Card shadow="sm" padding="md" style={{ marginBottom: 16 }}>
