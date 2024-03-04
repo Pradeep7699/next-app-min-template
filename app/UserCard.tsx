@@ -30,7 +30,7 @@ const UserCard: React.FC<Props> = ({ user, onDelete }) => {
 
   return (
     <Grid.Col span={3}>
-      <Card shadow="lg" padding="sm" style={{ marginLeft:"10px", marginBottom: "25px", width: "390px", height: "360px", borderRadius: "10px" }}>
+      <Card shadow="lg" padding="sm" style={{ marginLeft:"10px", border: "1px solid #e0e0e0", width: "400px", height: "360px", borderRadius: "10px"}}>
         <div style={{ marginTop: "20px", marginLeft: "130px" }}>
         <Tooltip style={{ placement:"top",}}  label={user.name}>
           <Avatar
@@ -62,7 +62,7 @@ const UserCard: React.FC<Props> = ({ user, onDelete }) => {
           </div>
         </Link>
 
-    <div style={{ marginTop: 14 }}>
+    <div style={{ marginTop: "12px" }}>
        {
       isFollowed ?
       <Button style={{ marginLeft: "10px", marginTop: "5px",width:"170px"}} variant="outline"  onClick={handleFollow} >
