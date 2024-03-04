@@ -30,18 +30,18 @@ const UserCard: React.FC<Props> = ({ user, onDelete }) => {
 
   return (
     <Grid.Col span={3}>
-      <Card shadow="lg" padding="sm" style={{ marginBottom: "25px", width: "390px", height: "330px", borderRadius: "10px" }}>
-        <div style={{ marginTop: "20px", marginLeft: "80px" }}>
+      <Card shadow="lg" padding="sm" style={{ marginLeft:"10px", marginBottom: "25px", width: "390px", height: "360px", borderRadius: "10px" }}>
+        <div style={{ marginTop: "20px", marginLeft: "130px" }}>
         <Tooltip style={{ placement:"top",}}  label={user.name}>
           <Avatar
             src={`https://api.dicebear.com/7.x/initials/svg?seed=${user.name}`}
             alt={user.name}
-            style={{ width: 100, height: 100, marginBottom: 16,cursor: 'pointer'}}
+            style={{ width: 120, height: 120, marginBottom: 16,cursor: 'pointer'}}
           />
            </Tooltip>
         </div>
       
-          <Text style={{ marginLeft: "80px", marginTop: "2px", fontWeight: "bold" }}>{user.name} {isFollowed && <IconStar size={18} stroke={2} />}</Text>
+          <Text style={{ marginLeft: "135px", marginTop: "2px", fontWeight: "bold" }}>{user.name} {isFollowed && <IconStar size={18} stroke={2} />}</Text>
        
         <Link target="_blank" href={`mailto:${user.email}`} passHref style={{ textDecoration: 'none' }}>
           <div style={{ display: 'flex', alignItems: 'center', marginLeft: "10px", marginTop: "5px", cursor: 'pointer', color: 'black' }}>
@@ -62,15 +62,15 @@ const UserCard: React.FC<Props> = ({ user, onDelete }) => {
           </div>
         </Link>
 
-    <div style={{ marginTop: 16 }}>
+    <div style={{ marginTop: 14 }}>
        {
       isFollowed ?
       <Button style={{ marginLeft: "10px", marginTop: "5px",width:"170px"}} variant="outline"  onClick={handleFollow} >
-     <IconUser size={18} />  Unfollow 
+     <IconUser size={18} />  <div style={{ marginLeft: "10px"}}>Unfollow </div>
     </Button>  : <Button style={{ marginLeft: "10px", marginTop: "5px",width:"170px"}} onClick={handleFollow} >
-    <IconUserPlus size={18} /> Follow</Button>
+     <IconUserPlus size={18} /> <div style={{ marginLeft: "10px"}}> Follow </div></Button>
           }
-     <Button onClick={handleDelete} variant="outline"  style={{ marginLeft: "10px", marginTop: "5px" ,width:"170px"}}> <IconTrash size={18} /> Delete</Button>
+     <Button onClick={handleDelete} variant="outline"  style={{ marginLeft: "10px", marginTop: "5px" ,width:"170px"}}> <IconTrash size={18} /> <div style={{ marginLeft: "10px"}}>Delete</div></Button>
         </div>
       </Card>
     </Grid.Col>

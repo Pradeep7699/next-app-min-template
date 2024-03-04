@@ -12,7 +12,7 @@ interface User {
   website: string;
 }
 
-const HomePage: React.FC = () => {
+const HomePage = () => {
   const [users, setUsers] = useState<User[]>([]);
 
 
@@ -32,7 +32,6 @@ const HomePage: React.FC = () => {
     
     } catch (error) {
       console.error('Error fetching users:', error);
-      alert("Failed to fetch users")
     }
   };
 
