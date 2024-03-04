@@ -4,13 +4,17 @@ import React, { useState, useEffect } from 'react';
 import { Grid } from '@mantine/core';
 import UserCard from './UserCard';
 
+interface User {
+  id: number;
+  name: string;
+  email: string;
+  phone: string;
+  website: string;
+}
 
+const HomePage: React.FC = () => {
+  const [users, setUsers] = useState<User[]>([]);
 
-export default function HomePage() {
-
-  const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(true);
-  // const [error, setError] = useState(null); // You can handle error messages if needed
 
   useEffect(() => {
     fetchUsers();
@@ -25,26 +29,26 @@ export default function HomePage() {
       }
       const data = await response.json();
       setUsers(data);
-      setLoading(false);
+    
     } catch (error) {
       console.error('Error fetching users:', error);
-      // setError('Failed to fetch users');
-      setLoading(false);
+      alert("Failed to fetch users")
     }
   };
 
-  const handleDeleteUser = (userId:any) => {
-    setUsers(users.filter((user:any) => user.id !== userId));
+  const handleDeleteUser = (userId: number) => {
+    setUsers(users.filter((user) => user.id !== userId));
   };
 
-  return(
+  return (
     <Grid>
-    {users.map((user:any) => (
-      <Grid.Col key={user.id} span={12} >
-        <UserCard user={user} onDelete={() => handleDeleteUser(user.id)} />
-      </Grid.Col>
-    ))}
-  </Grid>     
-     
-)
-}
+      {users.map((user) => (
+        <Grid.Col key={user.id} span={3}>
+          <UserCard user={user} onDelete={() => handleDeleteUser(user.id)} />
+        </Grid.Col>
+      ))}
+    </Grid>
+  );
+};
+
+export default HomePage;
